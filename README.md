@@ -2,7 +2,7 @@
 This is the Repository for the project in CS436
 
 
-# Group Members: 
+# Group Members 
   Ayhan Salih Öner
   Eren...
   Yiğit Pekgöz
