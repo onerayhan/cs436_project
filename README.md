@@ -31,7 +31,7 @@ It is ran on multiple configurations
 - sudo vim cluster.yml -> add manually or copy the cluster.yml from cloud shell
 - sudo apt install docker
 - sudo apt install docker-compose
--docker-compose -f cluster.yml up -d
+- docker-compose -f cluster.yml up -d
 
 ### Google Kubernetes Engine Managed Environment with horizontal pod autoscaling
 
