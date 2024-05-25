@@ -57,7 +57,7 @@ For Learning purposes Fancy Store labs are completed with added architectures. T
 
 ### Deployed as Microservices with Google Kubernetes Engine 
 
-Since these labs give Badges when they are completed and resources allocated are limited no testing is made on them and no proof images are added. Deployment Architectures are added as a starting point. In order to see proofs that we did them check: [Infrastructure Modernization Badge](https://www.credly.com/badges/c422b6ea-c22f-44cf-b9ba-b91758a21e2d)
+Since these labs give Badges when they are completed and resources allocated are limited no testing is made on them and no proof images are added. Deployment Architectures are added as a starting point. In order to see proofs that we did them check: [Infrastructure Modernization Badge](https://www.credly.com/badges/c422b6ea-c22f-44cf-b9ba-b91758a21e2d/public_url), Also : [The Basics of Google Cloud Compute Skill Badge](https://www.credly.com/badges/c67da24a-c8fa-4a05-a076-669d2ed5efb3/public_url)
 
 ## SUMMARY
 
