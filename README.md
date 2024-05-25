@@ -62,6 +62,7 @@ Since these labs give Badges when they are completed and resources allocated are
 ## SUMMARY
 
 Hosting Tinode Chat Application on Google Cloud Platform using Kubernates
+
 For our project, we successfully deployed the Tinode chat application on the Google Cloud Platform (GCP). Initially, we used Docker Compose to containerize and manage the application, but to improve scalability and overall project quality, we transitioned to using Google Kubernetes Engine (GKE).
 
 Here's an overview of our process:
