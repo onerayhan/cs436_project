@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exporter
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: exporter
+  template:
+    metadata:
+      labels:
+        app: exporter
+    spec:
+      containers:
+      - name: exporter
+        image: tinode/exporter:latest
+        ports:
+        - containerPort: 6222
+        env:
+        - name: TINODE_ADDR
+          value: "http://tinode.host:18080/stats/expvar/"
+        - name: SERVE_FOR
+          value: "influxdb"
+        - name: INFLUXDB_VERSION
+          value: "1.7"
+        - name: INFLUXDB_PUSH_INTERVAL
+          value: "30"
+        - name: INFLUXDB_PUSH_ADDRESS
+          value: "https://mon.tinode.co/intake"
+        - name: INFLUXDB_AUTH_TOKEN
+          value: "<auth token>"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: exporter
+spec:
+  ports:
+  - port: 6222
+  selector:
+    app: exporter
