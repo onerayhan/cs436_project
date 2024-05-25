@@ -47,3 +47,14 @@ In order to run Tinode in a Google Kubernetes managed environment run this comma
 - kubectl apply -f exporter-deployment.yml
 - kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 - kubectl apply -f hpa.yml
+
+## Fancy-Store
+For Learning purposes Fancy Store labs are completed with added architectures. The Application were built on 4 different Architectures
+
+### Deployed on Cloud Run as a Monolith
+
+### Deployed as Microservices with Compute engine MIG's with Load Balancer and Health Checks
+
+### Deployed as Microservices with Google Kubernetes Engine 
+
+Since these labs give Badges when they are completed and resources allocated are limited no testing is made on them and no proof images are added. Deployment Architectures are added as a starting point. In order to see proofs that we did them check: [Infrastructure Modernization Badge] (https://www.credly.com/badges/c422b6ea-c22f-44cf-b9ba-b91758a21e2d)
