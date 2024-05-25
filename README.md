@@ -70,16 +70,19 @@ Here's an overview of our process:
 1. Initial Deployment with Docker Compose:
 
 -Containerization: We use Tinode's ready-to-use docker images, ensuring that all dependencies and configurations were encapsulated within Docker images.
+
 -Management with Docker Compose: We used Docker Compose to define and run multi-container Docker applications. This setup allowed us to easily manage and orchestrate the different services needed by the Tinode application on a single-node environment.
 
 3. Transition to Google Kubernetes Engine:
    
 -Starting from Scratch: Rather than transferring our Docker setup directly, we built a new deployment from scratch specifically for Kubernetes. This involved creating Kubernetes manifests (YAML files) for deploying the Tinode application components as Kubernetes pods.
+
 -Deployment on GKE: We utilized GKE to manage our Kubernetes clusters. GKE's managed environment provided robust features such as automated upgrades, scaling, and integrated monitoring.
 
 5. Implementing Horizontal Pod Autoscaling:
    
 -Configuration of HPA: We set up Horizontal Pod Autoscaling (HPA) within our GKE environment. HPA was configured to monitor the application’s performance metrics, such as CPU utilization, and automatically adjust the number of pods to handle varying workloads.
+
 -Dynamic Scaling: This setup allowed our application to scale out (increase the number of pods) during high traffic periods and scale in (decrease the number of pods) during low traffic periods, ensuring efficient use of resources.
 
 By rebuilding our deployment for Kubernetes and leveraging the capabilities of GKE and HPA, we significantly enhanced the scalability, reliability, and performance of the Tinode chat application. This comprehensive approach not only improved the quality of our project but also provided a robust foundation for future growth and complex use cases.
