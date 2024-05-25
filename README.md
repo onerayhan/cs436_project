@@ -17,10 +17,23 @@ Tinode is an open source chat app with multiple features including messaging, gr
 It is ran on multiple configurations
 
 ### Single Vm instance with everything in it
+- From gcloud shell after a vm is created in the preferred zone and region with firewall rules allowing ingress tcp:3306 and tcp:6060:
+- sudo apt update
+- sudo apt install docker
+- sudo apt install docker-compose
+- sudo docker network create tinode-net
+- sudo docker run --name mysql --network tinode-net --restart always --env MYSQL_ALLOW_EMPTY_PASSWORD=yes -d mysql:5.7
+- sudo docker run -p 6060:6060 -d --name tinode-srv --network tinode-net tinode/tinode-mysql:latest
 
 ### A 3 Node cluster setup
+- From gcloud shell after a vm is created in the preferred zone and region with firewall rules allowing ingress tcp:3306 and tcp:6060:
+- sudo apt update
+- sudo vim cluster.yml -> add manually or copy the cluster.yml from cloud shell
+- sudo apt install docker
+- sudo apt install docker-compose
+-docker-compose -f cluster.yml up -d
 
-### Google Kubernetes Engine Managed Environment
+### Google Kubernetes Engine Managed Environment with horizontal pod autoscaling
 
 In order to run Tinode in a Google Kubernetes managed environment run this command in the google cloud shell and also do not forget to add .yml files to your shell account:
 
