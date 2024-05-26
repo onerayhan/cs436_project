@@ -89,7 +89,7 @@ For our school project, we successfully deployed the Tinode chat application on 
 ### 4.Testing with Locust:
 - Load Testing: We used Locust, a popular open-source load testing tool, to simulate high traffic conditions and evaluate the performance and scalability of our application.
 - Results: Under high traffic conditions, we observed that the application scaled up automatically, increasing the number of pods to handle the load. Once we stopped sending requests and the traffic decreased, the application scaled down automatically, reducing the number of pods to conserve resources.
-- 
+ 
 ### 5.Additional Enhancements:
 - Monitoring and Logging: Utilizing Google Cloud’s operations suite, we implemented comprehensive monitoring and logging for our Kubernetes cluster. This allowed us to track application performance, detect issues early, and maintain detailed logs for troubleshooting.
 
