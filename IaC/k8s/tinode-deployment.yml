@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tinode
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tinode
+  template:
+    metadata:
+      labels:
+        app: tinode
+    spec:
+      containers:
+      - name: tinode
+        image: tinode/tinode-mysql:latest
+        ports:
+        - containerPort: 6060
+        resources:
+          requests:
+            cpu: "50m"
+            memory: "256Mi"
+          limits:
+            cpu: "150m"
+            memory: "512Mi"
+        env:
+        - name: STORE_USE_ADAPTER
+          value: "mysql"
+        - name: PPROF_URL
+          value: "/pprof"
+        - name: WAIT_FOR
+          value: "mysql:3306"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tinode
+spec:
+  type: LoadBalancer
+  selector:
+    app: tinode
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 6060
