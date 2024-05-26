@@ -11,6 +11,8 @@ We Chose to Ran 2 different applications in different architectures to get our h
 One of them is a chat app with a generalized monolithic architecture and a couple microservice plug-ins called Tinode.
 The other one is a microservice arcihtectured online shop called fancy store. Fancy Store was an example lab provided by Google Cloud Skills Boost their lab files can be found in [Build a Website on Google Cloud](https://www.cloudskillsboost.google/course_templates/638)
 
+## Project Video
+https://drive.google.com/file/d/1Ona6kbR2zL5qYEp_6rjE3SgQ0f8QFegu/view?usp=sharing
 
 ## Tinode
 Tinode is an open source chat app with multiple features including messaging, group messaging, web calls, data exporting, location sharing etc.
