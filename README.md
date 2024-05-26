@@ -61,25 +61,36 @@ Since these labs give Badges when they are completed and resources allocated are
 
 ## SUMMARY
 
-Hosting Tinode Chat Application on Google Cloud Platform using Kubernetes
+### Hosting Tinode Chat Application
+For our school project, we successfully deployed the Tinode chat application on the Google Cloud Platform (GCP). Initially, we used Docker Compose to containerize and manage the application, but to enhance scalability, reliability, and overall project quality, we transitioned to using Google Kubernetes Engine (GKE) with advanced features such as Horizontal Pod Autoscaling (HPA).
 
-For our project, we successfully deployed the Tinode chat application on the Google Cloud Platform (GCP). Initially, we used Docker Compose to containerize and manage the application, but to improve scalability and overall project quality, we transitioned to using Google Kubernetes Engine (GKE).
-
-Here's an overview of our process:
 
 ### 1. Initial Deployment with Docker Compose:
-
 - Containerization: We use Tinode's ready-to-use docker images, ensuring that all dependencies and configurations were encapsulated within Docker images.
-- Management with Docker Compose: We used Docker Compose to define and run multi-container Docker applications. This setup allowed us to easily manage and orchestrate the different services needed by the Tinode application on a single-node environment.
+- Management with Docker Compose: Using Docker Compose, we defined a multi-container environment necessary for the Tinode application. Docker Compose allowed us to manage and orchestrate these containers locally, making it easier to develop and test the application. This setup included services for the Tinode server, database (MySQL), and any other necessary components.
 
 ### 2. Transition to Google Kubernetes Engine:
-   
-- Starting from Scratch: Rather than transferring our Docker setup directly, we built a new deployment from scratch specifically for Kubernetes. This involved creating Kubernetes manifests (YAML files) for deploying the Tinode application components as Kubernetes pods.
-- Deployment on GKE: We utilized GKE to manage our Kubernetes clusters. GKE's managed environment provided robust features such as automated upgrades, scaling, and integrated monitoring.
+- Rebuilding for Kubernetes:
+  - Kubernetes Manifests: We did not directly transfer our Docker setup to Kubernetes. Instead, we rebuilt the deployment from scratch, creating Kubernetes         manifests (YAML files) that defined the desired state of our application components. These manifests included:
+  - Deployments: For managing the Tinode application pods.
+  - Services: To expose the Tinode application internally within the cluster and externally to users.
+  - ConfigMaps and Secrets: For managing configuration data and sensitive information, respectively.
+  - Persistent Volume Claims (PVCs): To handle storage needs for components like the database.
+- Deployment on GKE: We deployed the Kubernetes setup on GKE, benefiting from GKE’s managed environment which offers features like automated cluster management, integrated monitoring, and logging through Google Cloud's operations suite (formerly Stackdriver).
 
 ### 3. Implementing Horizontal Pod Autoscaling:
-   
-- Configuration of HPA: We set up Horizontal Pod Autoscaling (HPA) within our GKE environment. HPA was configured to monitor the application’s performance metrics, such as CPU utilization, and automatically adjust the number of pods to handle varying workloads.
-- Dynamic Scaling: This setup allowed our application to scale out (increase the number of pods) during high traffic periods and scale in (decrease the number of pods) during low traffic periods, ensuring efficient use of resources.
+- HPA Configuration:
+  - Metrics Collection: We configured HPA to use Kubernetes metrics (such as CPU and memory usage) to monitor the performance of our application pods.
+  - Autoscaling Policies: Based on these metrics, we set up scaling policies that automatically adjust the number of pods. For example, if CPU usage exceeds       50%, HPA will scale out by adding more pods. Conversely, if CPU usage drops below 50%, HPA will scale in by reducing the number of pods.
+- Dynamic Scaling Benefits:
+  - Resource Efficiency: This dynamic scaling ensures that our application efficiently uses resources, scaling up during peak traffic periods to maintain           performance and scaling down during low traffic periods to save costs.
+  - Resilience: By automatically adjusting to workload changes, the application remains resilient and maintains high availability even under varying traffic conditions.
 
-By rebuilding our deployment for Kubernetes and leveraging the capabilities of GKE and HPA, we significantly enhanced the scalability, reliability, and performance of the Tinode chat application. This comprehensive approach not only improved the quality of our project but also provided a robust foundation for future growth and complex use cases.
+### 4.Testing with Locust:
+- Load Testing: We used Locust, a popular open-source load testing tool, to simulate high traffic conditions and evaluate the performance and scalability of our application.
+- Results: Under high traffic conditions, we observed that the application scaled up automatically, increasing the number of pods to handle the load. Once we stopped sending requests and the traffic decreased, the application scaled down automatically, reducing the number of pods to conserve resources.
+- 
+### 5.Additional Enhancements:
+- Monitoring and Logging: Utilizing Google Cloud’s operations suite, we implemented comprehensive monitoring and logging for our Kubernetes cluster. This allowed us to track application performance, detect issues early, and maintain detailed logs for troubleshooting.
+
+By rebuilding our deployment for Kubernetes and leveraging the advanced capabilities of GKE, HPA, and load testing with Locust, we significantly enhanced the scalability, reliability, and performance of the Tinode chat application. This comprehensive approach not only improved the quality of our project but also provided a robust, future-proof foundation for potential growth and more complex use cases.
