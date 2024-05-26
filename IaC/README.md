@@ -79,9 +79,12 @@ To see the external Ip Of the Load Balancer. The application will be accesible t
 ### 5. Cleanup Resources
 To cleanup resources run:
 - gcloud container clusters delete tinode-cluster
+
 Find the Persistent disks and PVC's
 - gcloud compute disks list
+  
 Delete them
 - gcloud compute disks delete <disk-name>
+
 Replace <disk-name> with the disks in the list command
 All is cleaned up
