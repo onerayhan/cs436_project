@@ -75,6 +75,7 @@ kubectl get svc
 ### 4. See the Website
 Run:
 - kubectl get services
+
 To see the external Ip Of the Load Balancer. The application will be accesible through this IP
 ### 5. Cleanup Resources
 To cleanup resources run:
