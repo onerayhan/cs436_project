@@ -84,3 +84,4 @@ Find the Persistent disks and PVC's
 Delete them
 - gcloud compute disks delete <disk-name>
 Replace <disk-name> with the disks in the list command
+All is cleaned up
