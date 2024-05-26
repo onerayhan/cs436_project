@@ -62,7 +62,7 @@ Since these labs give Badges when they are completed and resources allocated are
 ## SUMMARY
 
 ### Hosting Tinode Chat Application
-For our school project, we successfully deployed the Tinode chat application on the Google Cloud Platform (GCP). Initially, we used Docker Compose to containerize and manage the application, but to enhance scalability, reliability, and overall project quality, we transitioned to using Google Kubernetes Engine (GKE) with advanced features such as Horizontal Pod Autoscaling (HPA).
+For our project, we successfully deployed the Tinode chat application on the Google Cloud Platform (GCP). Initially, we used Docker Compose to containerize and manage the application, but to enhance scalability, reliability, and overall project quality, we transitioned to using Google Kubernetes Engine (GKE) with advanced features such as Horizontal Pod Autoscaling (HPA).
 
 
 ### 1. Initial Deployment with Docker Compose:
